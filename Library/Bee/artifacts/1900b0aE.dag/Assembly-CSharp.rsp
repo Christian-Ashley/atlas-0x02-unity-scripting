@@ -370,6 +370,7 @@
 -analyzer:"C:/Users/christian ashley/Desktop/ARVR-projects/2022.3.18f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/Rotator.cs"
 -langversion:9.0
 
 /deterministic
