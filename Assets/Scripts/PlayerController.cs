@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 public float speed = 5f;
-
+private int score = 0;
     void Start()
     {
         // No initialization needed for Start()
@@ -20,5 +20,13 @@ public float speed = 5f;
         movement.Normalize(); // Normalize the movement vector to prevent faster diagonal movement
 
         transform.Translate(movement * speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
+        score++;
+        Debug.Log("Score: " + score);
+        other.gameObject.SetActive(false);
     }
 }
