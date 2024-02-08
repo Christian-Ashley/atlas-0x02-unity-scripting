@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-public float speed = 5f;
-private int score = 0;
+    public float speed = 5f;
+    private int score = 0;
+    public int health = 5;
     void Start()
     {
         // No initialization needed for Start()
@@ -25,8 +26,15 @@ private int score = 0;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Pickup"))
-        score++;
-        Debug.Log("Score: " + score);
-        other.gameObject.SetActive(false);
+        {
+            score++;
+            Debug.Log("Score: " + score);
+            other.gameObject.SetActive(false);
+        }
+        if (other.CompareTag("Trap"))
+        {
+            health--;
+            Debug.Log("Health: " + health);
+        }
     }
 }
