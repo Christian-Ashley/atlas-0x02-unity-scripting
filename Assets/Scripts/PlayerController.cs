@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,5 +37,23 @@ public class PlayerController : MonoBehaviour
             health--;
             Debug.Log("Health: " + health);
         }
+    }
+
+         void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+           
+           score = 0;
+           health = 5;
+           Invoke("Restart", 2f);
+           Restart();
+        }
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
